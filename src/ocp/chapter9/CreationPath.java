@@ -1,9 +1,7 @@
 package ocp.chapter9;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
@@ -19,6 +17,9 @@ public class CreationPath {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Path path1 = FileSystems.getDefault().getPath("/Ad");
+        Files.lines(path).forEach(System.out::println);
 
         BasicFileAttributes data = Files.readAttributes(path, BasicFileAttributes.class);
         System.out.println("Is path a directory? " + data.isDirectory());
