@@ -6,9 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Q6 {
+public class Q6and7 {
     public static void main(String[] args) throws IOException {
-        Path path = Paths.get("C:\\Users\\Ad1\\IdeaProjects\\JavaCertificationExamples").getParent();
+        Path path = Paths.get("C:\\Users\\Ad1\\IdeaProjects\\.\\JavaCertificationExamples").normalize().getRoot();
+        System.out.println("path.getRoot() = " + path);
 
         Files.walk(path, 5, FileVisitOption.FOLLOW_LINKS) // b1
                 .filter(p -> p.resolve(p).getFileName().toString().endsWith(".csv")) // b2
